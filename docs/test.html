@@ -44,18 +44,42 @@
 </head>
 <body>
 
-<form>
-    <label for="Nom">Nom (4 à 8 caractères) :</label>
-    <input type="text" id="Nom" name="Nom" required minlength="4" maxlength="8" size="10" />
+<form id="myForm">
+    <label for="Nom">Nom :</label>
+    <input type="text" id="Nom" name="Nom"  />
 
     <label for="email">Email :</label>
-    <input type="text" id="email" name="email" required minlength="4" maxlength="8" size="10" />
+    <input type="text" id="email" name="email" />
 
     <label for="Message">Message :</label>
-    <input type="text" id="Message" name="Message" required minlength="4" maxlength="8" size="10" />
+    <input type="text" id="Message" name="Message"  />
 
     <input type="submit" value="Envoyer">
 </form>
+
+<script>
+    document.getElementById("myForm").addEventListener("submit", function(event){
+        event.preventDefault(); // Empêcher le formulaire de se soumettre normalement
+
+        // Récupérer les données du formulaire
+        const formData = new FormData(this);
+
+        // Envoyer les données au serveur fictif
+        fetch('https://n8n.oriatec.fr/webhook/cplr-versionning', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data); // Afficher la réponse du serveur
+            alert("Le formulaire a été soumis avec succès !");
+        })
+        .catch(error => {
+            console.error('Erreur lors de l\'envoi du formulaire :', error);
+            alert("Une erreur s'est produite lors de l'envoi du formulaire.");
+        });
+    });
+</script>
 
 </body>
 </html>
