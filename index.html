@@ -23,6 +23,14 @@
         border-radius: 4px;
         box-sizing: border-box;
     }
+	select {
+		width: 100%;
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+	}
     input[type="text"]:focus {
         border-color: #007bff;
         outline: none;
@@ -53,6 +61,16 @@
 
     <label for="message">Message :</label>
     <input type="text" id="message" name="message"  />
+	
+	<label for="demande-select">Type de demande:</label>
+
+<select name="demande" id="demande-select">
+  <option value="">--Choisissez une demande--</option>
+  <option value="Technique">Technique</option>
+  <option value="Facture">Facture</option>
+  <option value="Devis">Devis</option>
+  <option value="Autre">Autre</option>
+</select>
 
     <input type="submit" value="Envoyer">
 </form>
