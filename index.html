@@ -82,8 +82,8 @@
         // Récupérer les données du formulaire
         const formData = new FormData(this);
 
-        // Envoyer les données au serveur fictif
-        fetch('https://n8n.oriatec.fr/webhook/cplr-versionning', {
+        // Envoyer les données au serveur distant
+        fetch('https://hook.eu2.make.com/rsigxpwyqceeteemsdoh2dne0or6wgos', {
             method: 'POST',
             body: formData
         })
